@@ -5,6 +5,10 @@
 	<artifactId>whatis-bungee</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>WhatIs-Bungee</name>
+	
+	<properties>
+		<plugin.version>${project.version}-${env.BUILD_NUMBER}</plugin.version>
+	</properties>
 
 	<repositories>
 		<repository>
