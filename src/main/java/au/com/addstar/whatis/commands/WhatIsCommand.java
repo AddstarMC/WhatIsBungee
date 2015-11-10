@@ -11,6 +11,8 @@ public class WhatIsCommand extends Command implements TabExecutor {
 	public WhatIsCommand() {
 		super("!whatis", "whatisbungee.use");
 		dispatcher = new CommandDispatcher();
+		
+		dispatcher.registerCommand(new PrintFieldCommand());
 	}
 	
 	@Override
