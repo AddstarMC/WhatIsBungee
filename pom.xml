@@ -3,13 +3,44 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>au.com.addstar</groupId>
 	<artifactId>whatis-bungee</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>WhatIs-Bungee</name>
-	
-	<properties>
-		<plugin.version>${project.version}-${env.BUILD_NUMBER}</plugin.version>
-	</properties>
 
+	<properties>
+		<build.number />
+		<plugin.version>${project.version}-${build.number}</plugin.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<scm>
+		<connection>scm:git:git@github.com:AddstarMC/WhatIsBungee.git</connection>
+		<developerConnection>scm:git:git@github.com:AddstarMC/WhatIsBungee.git</developerConnection>
+		<url>https://github.com/AddstarMC/WhatIsBungee</url>
+		<tag>HEAD</tag>
+	</scm>
+	<developers>
+		<developer>
+			<id>AddstarMC</id>
+			<name>AddstarMC</name>
+			<url>http://github.com/AddstarMC</url>
+			<roles>
+				<role>developer</role>
+				<role>maintainer</role>
+			</roles>
+			<timezone>10</timezone>
+		</developer>
+	</developers>
+	<distributionManagement>
+		<repository>
+			<id>maven.addstar.com.au</id>
+			<name>maven.addstar.com.au-releases</name>
+			<url>http://maven.addstar.com.au/artifactory/ext-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>maven.addstar.com.au</id>
+			<name>maven.addstar.com.au-snapshots</name>
+			<url>http://maven.addstar.com.au/artifactory/ext-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<repositories>
 		<repository>
 			<id>addstar-snapshot-repo</id>
@@ -24,14 +55,13 @@
 		<dependency>
 			<groupId>net.md-5</groupId>
 			<artifactId>bungeecord-api</artifactId>
-			<version>1.8-tab-SNAPSHOT</version>
+			<version>1.11-SNAPSHOT</version>
 			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
 	
 	<build>
-		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -41,6 +71,11 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.1</version>
 			</plugin>
 		</plugins>
 	</build>
