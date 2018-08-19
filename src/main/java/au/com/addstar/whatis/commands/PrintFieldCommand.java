@@ -1,5 +1,6 @@
 package au.com.addstar.whatis.commands;
 
+import java.awt.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -18,6 +19,7 @@ import au.com.addstar.whatis.utils.SubCommand;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.plugin.Plugin;
 
 public class PrintFieldCommand implements SubCommand {
@@ -241,10 +243,10 @@ public class PrintFieldCommand implements SubCommand {
 		try {
 			object = resolve(fullPath);
 		} catch (IllegalArgumentException e) {
-			sender.sendMessage(ChatColor.RED + e.getMessage());
+			sender.sendMessage(TextComponent.fromLegacyText(ChatColor.RED + e.getMessage()));
 			return true;
 		} catch (IllegalStateException e) {
-			sender.sendMessage(ChatColor.GOLD + e.getMessage());
+			sender.sendMessage(TextComponent.fromLegacyText(ChatColor.GOLD + e.getMessage()));
 			return true;
 		}
 
